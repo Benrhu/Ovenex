@@ -1,9 +1,13 @@
 package com.example.Ovenex.Services;
 
+import com.example.Ovenex.Entities.UserData;
+
 import java.util.Scanner;
 
 public class Core {
 
+    static UserData userData = new UserData();
+    static Integer comeBackUsed = userData.comeBackUsed;
     static Scanner input = new Scanner(System.in);
     static Food food = new Food();
     static FoodHistory foodHistory = new FoodHistory();
@@ -32,6 +36,7 @@ public class Core {
          }
      }
     public static void comeBack() {
+         comeBackUsed++;
         System.out.println("Do you want to return to the main menu?");
         System.out.println("1. Yes");
         System.out.println("2. No");

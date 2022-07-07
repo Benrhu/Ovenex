@@ -1,5 +1,7 @@
 package com.example.Ovenex.Services;
 
+import com.example.Ovenex.Entities.UserData;
+
 public class Clean {
     /**
      * ovenDirty:
@@ -8,6 +10,9 @@ public class Clean {
      * 5-7: needs to bebe cleaned
      * 8-10: Call to cleaning service.
      */
+
+    UserData userData = new UserData();
+    Integer timesCleaned = userData.timesCleaned;
 
     boolean piroMotor = false;
     int[] ovenDirty = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -36,6 +41,7 @@ public class Clean {
 
     public void piroClean() {
         piroMotor = true;
+        timesCleaned++;
         System.out.println("Cleaning your Ovenex");
     }
 }

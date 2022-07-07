@@ -1,6 +1,8 @@
 package com.example.Ovenex.Entities;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
 
@@ -20,8 +22,10 @@ import javax.persistence.*;
 @Table(name="Oven")
 public @Data @Entity class Oven {
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @Column(name = "ovenexId")
+    private Long ovenexId;
 
     @Column(name="Model")
     private String model;
@@ -54,8 +58,8 @@ public @Data @Entity class Oven {
     public Oven() {
     }
 
-    public Oven(Long id, String model, Integer minTemperature, Integer maxTemperature, Integer currentTemperature, Boolean isRunning, Boolean mainDoor, Boolean piroDoor, String color, Double height, Double width) {
-        this.Id = id;
+    public Oven(Long ovenexid, String model, Integer minTemperature, Integer maxTemperature, Integer currentTemperature, Boolean isRunning, Boolean mainDoor, Boolean piroDoor, String color, Double height, Double width) {
+        this.ovenexId = ovenexid;
         this.model = model;
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;

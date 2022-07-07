@@ -1,41 +1,40 @@
 package com.example.Ovenex.Controllers;
 import com.example.Ovenex.Entities.UserData;
 import com.example.Ovenex.Repository.UserDataRepository;
-import org.apache.catalina.User;
+import com.example.Ovenex.Services.UserDataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RestController
 public class UserDataController {
 
-    private UserDataRepository userDataRespository;
+    @Autowired
+    private UserDataService userDataService;
 
-    public UserDataController(UserDataRepository userDataRespository) {
-        this.userDataRespository = userDataRespository;
+    public UserDataController(UserDataRepository userDataRepository,UserDataService userDataService) {
+        this.userDataService = userDataService;
     }
 
     @GetMapping("/UserData")
-    public List<UserData> findAll() {
-        return userDataRespository.findAll();
+    public UserData findAll() {
+        return (UserData) userDataService.findAll();
     }
 
-    @PostMapping("/UserData")
-    public UserData create(@RequestBody UserData userData) {
-        return userDataRespository.save(userData);
+    @GetMapping("/UserData/{ovenexId}")
+    public Optional<UserData> findByOvenexId(@PathVariable Long ovenexId) {
+        return userDataService.findByOvenexId(ovenexId);
     }
 
-    @GetMapping("/subscribers")
-    public String showAll(Model model) {
-        List<UserData> UserDataList = userDataRespository.findAll();
-        return null;
-        // model.addAttribute("Titulo", "Lista de Suscriptores");
-        // model.addAttribute("Supscriptores", UserDataList);
-        // return "/templates";
-    }
+    /*@GetMapping("/OvenexId")
+    public Long findByOvenexId() {
+        return userDataService.findByOvenexId();
+    }*/
 
 
 

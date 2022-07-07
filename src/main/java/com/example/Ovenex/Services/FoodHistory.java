@@ -1,6 +1,11 @@
 package com.example.Ovenex.Services;
 
+import com.example.Ovenex.Entities.UserData;
+
 public class FoodHistory {
+    UserData userData = new UserData();
+
+    Integer foodHistoryUsed = userData.foodHistoryUsed;
 
     private String[] history = {
             "Pollo frito",
@@ -10,9 +15,9 @@ public class FoodHistory {
     };
 
     public void showHistory() {
-
         for (int i = 0; i < history.length; i++) {
             System.out.println(history[i]);
+            foodHistoryUsed++;
             Core.comeBack();
         }
     }

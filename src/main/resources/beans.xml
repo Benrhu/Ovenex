@@ -4,10 +4,8 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="Food" class="com.example.Ovenex.Services.Food"></bean>
-    <bean id="Core" class="com.example.Ovenex.Services.Core"></bean>
-    <bean id="Termostate" class="com.example.Ovenex.Services.Termostate"></bean>
-    <bean id="Puerta" class="com.example.Ovenex.Services.Puerta"></bean>
+    <bean id="UserDataService" class="com.example.Ovenex.Services.UserDataService"></bean>
+    <bean id="Oven" class="com.example.Ovenex.Entities.Oven"></bean>
 
 
 </beans>

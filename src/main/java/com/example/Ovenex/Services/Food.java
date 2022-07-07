@@ -1,5 +1,7 @@
 package com.example.Ovenex.Services;
 
+import com.example.Ovenex.Entities.UserData;
+
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +12,10 @@ import static com.example.Ovenex.Services.Core.comeBack;
  */
 
 public class Food {
+    UserData userData = new UserData();
+    Integer timesUsed = userData.timesUsed;
+    Integer recipesUsed = userData.recipesUsed;
+    Integer ingredientsUsed = userData.ingredientsUsed;
     Scanner input = new Scanner(System.in);
     Clean cleaner = new Clean();
 
@@ -67,6 +73,7 @@ public class Food {
         System.out.println("Showing ingredients");
         for (int i = 0; i < ingredients.length; i++) {
             System.out.println(ingredients[i]);
+            ingredientsUsed++;
         }
         comeBack();
     }
@@ -74,6 +81,7 @@ public class Food {
         System.out.println("Showing recipes");
         for (int i = 0; i < recipes.length; i++) {
             System.out.println(recipes[i]);
+            recipesUsed++;
         }
         System.out.println("Are you sure or do you want us to recommend a random recipe?");
         System.out.println("1. Yes");
@@ -98,6 +106,7 @@ public class Food {
      * Hacer que tarde 2 segundos
      */
     public void toCook() {
+        timesUsed++;
         System.out.println("Preparing your food");
         System.out.println("Enjoy your food");
         try {

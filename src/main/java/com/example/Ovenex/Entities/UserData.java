@@ -1,27 +1,69 @@
 package com.example.Ovenex.Entities;
 
+import com.sun.istack.NotNull;
+import lombok.Data;
+
 import javax.persistence.*;
 
-@Entity
+
 @Table(name = "UserData")
-public class UserData {
+public @Data @Entity class UserData {
 
-    Oven oven = new Oven();
-
+    Oven oven;
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long Id = oven.getId();
+    @Column(name = "userDataId")
+    public Long userId;
 
+    @Column(name = "email")
+    public String email;
+
+    @Column(name = "name")
+    public String name;
+
+    @Column(name = "surname")
+    public String surname;
+
+    @Column(name = "phone")
+    public String phone;
+
+    @Column(name = "location")
+    public String location;
+
+    @OneToOne(targetEntity = Oven.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ovenexId", referencedColumnName = "ovenexId")
+    public Long ovenexId = oven.getOvenexId();
+
+    @Column(name = "timesUsed")
     public Integer timesUsed;
+
+    @Column(name = "timesCleaned")
     public Integer timesCleaned;
-    private String statsFood;
+
+    @Column(name = "recipesUsed")
+    public Integer recipesUsed;
+
+    @Column(name = "ingredientsUsed")
+    public Integer ingredientsUsed;
+
+    @Column(name = "comeBackUsed")
+    public Integer comeBackUsed;
+
+    @Column(name = "foodHistoryUsed")
+    public Integer foodHistoryUsed;
+
 
     public UserData() {
     }
 
-    public UserData(Integer timesUsed, Integer timesCleaned, String statsFood) {
+    public UserData(Long userId, String email, String name, String surname, Integer phone, String location, Long ovenexId,Integer timesUsed, Integer timesCleaned, Integer recipesUsed, Integer ingredientsUsed, Integer comeBackUsed, Integer foodHistoryUsed) {
         this.timesUsed = timesUsed;
         this.timesCleaned = timesCleaned;
-        this.statsFood = statsFood;
+        this.recipesUsed = recipesUsed;
+        this.ingredientsUsed = ingredientsUsed;
+        this.comeBackUsed = comeBackUsed;
+        this.foodHistoryUsed = foodHistoryUsed;
+        this.ovenexId = ovenexId;
     }
 }
