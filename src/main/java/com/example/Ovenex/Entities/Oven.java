@@ -24,8 +24,8 @@ public @Data @Entity class Oven {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ovenexId")
-    private Long ovenexId;
+    @Column(name = "id")
+    private static Long id;
 
     @Column(name="Model")
     private String model;
@@ -58,8 +58,8 @@ public @Data @Entity class Oven {
     public Oven() {
     }
 
-    public Oven(Long ovenexid, String model, Integer minTemperature, Integer maxTemperature, Integer currentTemperature, Boolean isRunning, Boolean mainDoor, Boolean piroDoor, String color, Double height, Double width) {
-        this.ovenexId = ovenexid;
+    public Oven(Long id, String model, Integer minTemperature, Integer maxTemperature, Integer currentTemperature, Boolean isRunning, Boolean mainDoor, Boolean piroDoor, String color, Double height, Double width) {
+        this.id = id;
         this.model = model;
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;

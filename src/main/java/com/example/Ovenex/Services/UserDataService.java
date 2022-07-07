@@ -12,7 +12,7 @@ public class UserDataService {
 
     private UserData userData;
 
-    Long ovenexId = userData.ovenexId;
+    // Long ovenexId = userData.getOven().ge;
     Integer timesUsed = userData.timesUsed;
     Integer timesCleaned = userData.timesCleaned;
     Integer recipesUsed = userData.recipesUsed;
@@ -29,7 +29,7 @@ public class UserDataService {
     }
 
     public Integer getTimesUsed(Integer timesUsed) {
-        return this.timesUsed = timesUsed;
+        return userData.timesUsed;
     }
 
     public Integer getTimesCleaned(Integer timesCleaned) {

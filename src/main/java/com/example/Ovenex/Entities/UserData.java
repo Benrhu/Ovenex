@@ -2,6 +2,7 @@ package com.example.Ovenex.Entities;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -9,7 +10,6 @@ import javax.persistence.*;
 @Table(name = "UserData")
 public @Data @Entity class UserData {
 
-    Oven oven;
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,8 +32,8 @@ public @Data @Entity class UserData {
     public String location;
 
     @OneToOne(targetEntity = Oven.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ovenexId", referencedColumnName = "ovenexId")
-    public Long ovenexId = oven.getOvenexId();
+    @JoinColumn(name = "ovenexId", referencedColumnName = "Id")
+    private Oven oven;
 
     @Column(name = "timesUsed")
     public Integer timesUsed;
@@ -57,13 +57,14 @@ public @Data @Entity class UserData {
     public UserData() {
     }
 
-    public UserData(Long userId, String email, String name, String surname, Integer phone, String location, Long ovenexId,Integer timesUsed, Integer timesCleaned, Integer recipesUsed, Integer ingredientsUsed, Integer comeBackUsed, Integer foodHistoryUsed) {
+    public UserData(Long userId, String email, String name, String surname, Integer phone, String location, Long Id,Integer timesUsed, Integer timesCleaned, Integer recipesUsed, Integer ingredientsUsed, Integer comeBackUsed, Integer foodHistoryUsed) {
+        this.userId = userId;
         this.timesUsed = timesUsed;
         this.timesCleaned = timesCleaned;
         this.recipesUsed = recipesUsed;
         this.ingredientsUsed = ingredientsUsed;
         this.comeBackUsed = comeBackUsed;
         this.foodHistoryUsed = foodHistoryUsed;
-        this.ovenexId = ovenexId;
+        //this.id = ovenexId;
     }
 }
