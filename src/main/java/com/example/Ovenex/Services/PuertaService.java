@@ -2,9 +2,9 @@ package com.example.Ovenex.Services;
 
 import com.example.Ovenex.Entities.Oven;
 
-public class Puerta {
+public class PuertaService {
 
-    Oven oven = new Oven();
+    Oven oven;
     boolean mainDoor = oven.mainDoor;;
 
     public void closeDoor() {

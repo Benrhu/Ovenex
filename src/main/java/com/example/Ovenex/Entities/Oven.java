@@ -2,7 +2,7 @@ package com.example.Ovenex.Entities;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
-import org.hibernate.annotations.NotFound;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -18,14 +18,17 @@ import javax.persistence.*;
 * Implementamos la interfaz MethodsOvenex.
  */
 
-
+@Entity
+@Data
 @Table(name="Oven")
-public @Data @Entity class Oven {
+@Component
+public class Oven {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "id")
     @Column(name = "id")
-    private static Long id;
+    private Long id;
 
     @Column(name="Model")
     private String model;
@@ -37,7 +40,7 @@ public @Data @Entity class Oven {
     public Integer maxTemperature;
 
     @Column(name="CurrentTemperature")
-    public static Integer currentTemperature;
+    public Integer currentTemperature;
 
     @Column(name="IsOn")
     public Boolean isRunning;
@@ -80,5 +83,9 @@ public @Data @Entity class Oven {
     public void turnOff(){
         System.out.println("Turning off your Ovenex...");
         isRunning = false;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

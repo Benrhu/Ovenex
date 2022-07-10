@@ -2,22 +2,16 @@ package com.example.Ovenex;
 
 import com.example.Ovenex.Entities.Oven;
 import com.example.Ovenex.Repository.OvenRepository;
-import com.example.Ovenex.Repository.UserDataRepository;
 import com.example.Ovenex.Services.Core;
-import com.example.Ovenex.Services.Food;
-import com.example.Ovenex.Services.Puerta;
-import com.example.Ovenex.Services.UserDataService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.ui.context.Theme;
-
-import javax.swing.*;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan
 public class OvenexApplication {
 
 	private static ConfigurableApplicationContext context;
@@ -25,15 +19,10 @@ public class OvenexApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext context = SpringApplication.run(OvenexApplication.class, args);
-		UserDataService userDataService = (UserDataService) context.getBean("UserDataService");
 
 		OvenRepository ovenRepository = context.getBean(OvenRepository.class);
-		UserDataRepository userDataRepository = context.getBean(UserDataRepository.class);
 
-		Food food = new Food();
 		Core core = new Core();
-		Oven oven = new Oven();
-		Puerta puerta = new Puerta();
 
 		Oven ovenexU = new Oven(null,
 				"OvenexU",

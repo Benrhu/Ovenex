@@ -5,7 +5,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="UserDataService" class="com.example.Ovenex.Services.UserDataService"></bean>
-    <bean id="Oven" class="com.example.Ovenex.Entities.Oven"></bean>
-
+    <bean id="UserData" class="com.example.Ovenex.Entities.UserData"></bean>
 
 </beans>

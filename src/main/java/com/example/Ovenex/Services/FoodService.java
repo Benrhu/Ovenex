@@ -11,13 +11,13 @@ import static com.example.Ovenex.Services.Core.comeBack;
  * This class is the tool that helps you to choose your food.
  */
 
-public class Food {
+public class FoodService {
     UserData userData = new UserData();
     Integer timesUsed = userData.timesUsed;
     Integer recipesUsed = userData.recipesUsed;
     Integer ingredientsUsed = userData.ingredientsUsed;
     Scanner input = new Scanner(System.in);
-    Clean cleaner = new Clean();
+    CleanService cleaner = new CleanService();
 
     private String[] ingredients = {
         "Tomato",

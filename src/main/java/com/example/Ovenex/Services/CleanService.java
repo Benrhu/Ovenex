@@ -2,7 +2,7 @@ package com.example.Ovenex.Services;
 
 import com.example.Ovenex.Entities.UserData;
 
-public class Clean {
+public class CleanService {
     /**
      * ovenDirty:
      * 0: clean

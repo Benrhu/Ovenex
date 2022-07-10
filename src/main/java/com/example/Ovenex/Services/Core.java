@@ -7,13 +7,11 @@ import java.util.Scanner;
 public class Core {
 
     static UserData userData = new UserData();
+
     static Integer comeBackUsed = userData.comeBackUsed;
     static Scanner input = new Scanner(System.in);
-    static Food food = new Food();
+    static FoodService food = new FoodService();
     static FoodHistory foodHistory = new FoodHistory();
-    static Puerta puerta = new Puerta();
-    static Clean cleaner = new Clean();
-
 
      public static void mainMenu(){
          System.out.println("What do you want to do?");
@@ -47,7 +45,7 @@ public class Core {
             System.out.println("Back to the main menu...");
             mainMenu();
         } else if (comeBack == 2) {
-
+            System.out.println("Goodbye!");
         }
     }
     public static void welcome(){

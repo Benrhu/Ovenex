@@ -1,18 +1,26 @@
 package com.example.Ovenex.Services;
 
+import com.example.Ovenex.Entities.Oven;
 import com.example.Ovenex.Entities.UserData;
 import com.example.Ovenex.Repository.UserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
+@Configurable
 public class UserDataService {
     @Autowired
-    private UserDataRepository userDataRepository;
+    UserDataRepository userDataRepository;
 
-    private UserData userData;
+    @Autowired
+    UserData userData = new UserData();
 
-    // Long ovenexId = userData.getOven().ge;
+    @Autowired
+    Oven oven;
+
     Integer timesUsed = userData.timesUsed;
     Integer timesCleaned = userData.timesCleaned;
     Integer recipesUsed = userData.recipesUsed;
@@ -24,11 +32,11 @@ public class UserDataService {
         return (UserData) userDataRepository.findAll();
     }
 
-    public Optional<UserData> findByOvenexId(Long ovenexId) {
-        return userDataRepository.findById(ovenexId);
+    public Optional<UserData> findByOvenId() {
+        return userDataRepository.findById(oven.getId());
     }
 
-    public Integer getTimesUsed(Integer timesUsed) {
+    public Integer getTimesUsed() {
         return userData.timesUsed;
     }
 

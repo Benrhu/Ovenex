@@ -5,25 +5,16 @@ import com.example.Ovenex.OvenexApplication;
 
 import java.util.Scanner;
 
-public class Termostate {
+public class TermostateService {
 
-    Oven oven = new Oven();
+    Oven oven;
 
     Scanner input = new Scanner(System.in);
 
-    int temperature = Oven.currentTemperature;
+    int temperature = oven.currentTemperature;
 
     int scanTemperature() {
         return temperature;
-    }
-
-    void setTemperature(int temperature) {
-
-        System.out.println("What temperature do you want to set?");
-
-        int newTemperature = input.nextInt();
-
-        System.out.println("Setting temperature to " + newTemperature + " degrees...");
     }
 
     void TooHot(){

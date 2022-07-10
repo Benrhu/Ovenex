@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
 @RestController
 public class UserDataController {
 
     @Autowired
-    private UserDataService userDataService;
+    UserDataService userDataService;
 
-    public UserDataController(UserDataRepository userDataRepository,UserDataService userDataService) {
+    public UserDataController(UserDataRepository userDataRepository, UserDataService userDataService) {
         this.userDataService = userDataService;
     }
 
@@ -26,16 +25,9 @@ public class UserDataController {
         return (UserData) userDataService.findAll();
     }
 
-    @GetMapping("/UserData/{ovenexId}")
-    public Optional<UserData> findByOvenexId(@PathVariable Long ovenexId) {
-        return userDataService.findByOvenexId(ovenexId);
+    @GetMapping("/UserData/ById")
+    public Optional<UserData> findById() {
+        return userDataService.findByOvenId();
     }
-
-    /*@GetMapping("/OvenexId")
-    public Long findByOvenexId() {
-        return userDataService.findByOvenexId();
-    }*/
-
-
 
 }

@@ -2,7 +2,7 @@ package com.example.Ovenex.Services;
 
 import java.util.Scanner;
 
-public class Music {
+public class MusicService {
 
     Scanner input = new Scanner(System.in);
     private String[] MusicList = {
